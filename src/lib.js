@@ -24,12 +24,44 @@ const makeDeltaTracker = function(initialValue) {
   }
 }
 
-const makeFiboGenerator = function() {
-  let firstNumber = 0;
-  let secondNumber = 1;
+const makeFiboGenerator = function(firstNumber = 0,secondNumber = 1) {
+  let currentNumber = 0;
+
+  if(firstNumber && secondNumber <= 1) {
+    let secondNumber = firstNumber;
+    firstNumber = 0;
+    return function() {
+      if(currentNumber == 0) {
+        currentNumber++;
+        return firstNumber;
+      }
+      if(currentNumber == 1) {
+        currentNumber++;
+        return secondNumber;
+      }
+      let sum = firstNumber+secondNumber;
+      firstNumber = secondNumber;
+      secondNumber = sum;
+      return sum;
+    }
+  }
+
   return function() {
+    if(currentNumber == 0) {
+      currentNumber++;
+      return firstNumber;
+    }
+    if(currentNumber == 1) {
+      currentNumber++;
+      return secondNumber;
+    }
+    let sum = firstNumber+secondNumber;
+    firstNumber = secondNumber;
+    secondNumber = sum;
+    return sum;
   }
 }
+
 const makeCycler = undefined;
 const curry = undefined;
 const compose = undefined;
