@@ -1,10 +1,10 @@
 const makeConstant = function(value) {
-  return value;
+  const constant = value;
+  return constant;
 }
 
 const makeCounterFromN = function(value) {
-  counter = value;
-  return counter;
+  return value;
 }
 
 const makeCounterFromZero = undefined;
