@@ -16,13 +16,11 @@ const makeCounterFromN = function(value) {
 }
 
 const makeDeltaTracker = function(initialValue) {
-  let delta = { old : initialValue, delta : 0, 'new' : initialValue};
-  return function(deltaValue) {
-    deltaValue = deltaValue || 0;
-    delta.old = delta['new'];
-    delta.delta = deltaValue;
-    delta['new'] = delta.old+deltaValue;
-    return delta;
+  let oldValue = initialValue;
+  return function(deltaValue = 0) {
+    return { old : oldValue,
+      delta : deltaValue,
+      'new' : oldValue = (oldValue+deltaValue)}
   }
 }
 
