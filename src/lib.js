@@ -2,7 +2,11 @@ const makeConstant = function(value) {
   return value;
 }
 
-const makeCounterFromN = undefined;
+const makeCounterFromN = function(value) {
+  counter = value;
+  return counter;
+}
+
 const makeCounterFromZero = undefined;
 const makeDeltaTracker = undefined;
 const makeFiboGenerator = undefined;
