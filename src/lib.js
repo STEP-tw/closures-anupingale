@@ -3,8 +3,15 @@ const makeConstant = function(value) {
     return value;
   }
 }
+
+const makeCounterFromZero = function() {
+  let counter = 0;
+  return function() {
+    return counter++;
+  }
+}
+
 const makeCounterFromN = undefined;
-const makeCounterFromZero = undefined;
 const makeDeltaTracker = undefined;
 const makeFiboGenerator = undefined;
 const makeCycler = undefined;
