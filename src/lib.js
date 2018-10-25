@@ -1,12 +1,9 @@
 const makeConstant = function(value) {
-  const constant = value;
-  return constant;
+  return function() {
+    return value;
+  }
 }
-
-const makeCounterFromN = function(value) {
-  return value;
-}
-
+const makeCounterFromN = undefined;
 const makeCounterFromZero = undefined;
 const makeDeltaTracker = undefined;
 const makeFiboGenerator = undefined;
