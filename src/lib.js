@@ -25,26 +25,15 @@ const makeDeltaTracker = function(initialValue) {
 }
 
 const makeFiboGenerator = function(firstNumber = 0,secondNumber = 1) {
-  let currentNumber = 0;
-
   const getFibo = function(firstNumber,secondNumber) {
     return function() {
-      if(currentNumber == 0) {
-        currentNumber++;
-        return firstNumber;
-      }
-      if(currentNumber == 1) {
-        currentNumber++;
-        return secondNumber;
-      }
-
+      let fiboNumber = firstNumber;
       let sum = firstNumber+secondNumber;
       firstNumber = secondNumber;
       secondNumber = sum;
-      return sum;
+      return fiboNumber;
     }
   }
-
   if(firstNumber && secondNumber <= 1) {
     let secondNumber = firstNumber;
     firstNumber = 0;
