@@ -27,9 +27,7 @@ const makeDeltaTracker = function(initialValue) {
 const makeFiboGenerator = function(firstNumber = 0,secondNumber = 1) {
   let currentNumber = 0;
 
-  if(firstNumber && secondNumber <= 1) {
-    let secondNumber = firstNumber;
-    firstNumber = 0;
+  const getFibo = function(firstNumber,secondNumber) {
     return function() {
       if(currentNumber == 0) {
         currentNumber++;
@@ -39,7 +37,7 @@ const makeFiboGenerator = function(firstNumber = 0,secondNumber = 1) {
         currentNumber++;
         return secondNumber;
       }
-      
+
       let sum = firstNumber+secondNumber;
       firstNumber = secondNumber;
       secondNumber = sum;
@@ -47,20 +45,12 @@ const makeFiboGenerator = function(firstNumber = 0,secondNumber = 1) {
     }
   }
 
-  return function() {
-    if(currentNumber == 0) {
-      currentNumber++;
-      return firstNumber;
-    }
-    if(currentNumber == 1) {
-      currentNumber++;
-      return secondNumber;
-    }
-    let sum = firstNumber+secondNumber;
-    firstNumber = secondNumber;
-    secondNumber = sum;
-    return sum;
+  if(firstNumber && secondNumber <= 1) {
+    let secondNumber = firstNumber;
+    firstNumber = 0;
+    return getFibo(firstNumber,secondNumber);
   }
+  return getFibo(firstNumber,secondNumber);
 }
 
 const makeCycler = function(inputValue) {
