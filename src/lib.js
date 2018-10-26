@@ -39,6 +39,7 @@ const makeFiboGenerator = function(firstNumber = 0,secondNumber = 1) {
         currentNumber++;
         return secondNumber;
       }
+      
       let sum = firstNumber+secondNumber;
       firstNumber = secondNumber;
       secondNumber = sum;
@@ -62,7 +63,14 @@ const makeFiboGenerator = function(firstNumber = 0,secondNumber = 1) {
   }
 }
 
-const makeCycler = undefined;
+const makeCycler = function(inputValue) {
+  let counter = 0;
+  let array = inputValue.map((element) =>{return element});
+  return function() {
+    return array[counter++ % (array.length)];
+  }
+}
+
 const curry = undefined;
 const compose = undefined;
 
