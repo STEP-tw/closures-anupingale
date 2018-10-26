@@ -11,7 +11,7 @@ const makeCounterFromZero = function() {
 const makeCounterFromN = function(value) {
   let counter = value;
   return function() {
-     return counter++;
+    return counter++;
   }
 }
 
@@ -34,8 +34,8 @@ const makeFiboGenerator = function(firstNumber = 0,secondNumber) {
     let sum = firstNumber+secondNumber;
     firstNumber = secondNumber;
     secondNumber = sum;
-      return fiboNumber;
-    }
+    return fiboNumber;
+  }
 }
 
 const makeCycler = function(inputValue) {
