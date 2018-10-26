@@ -24,9 +24,24 @@ const makeDeltaTracker = function(initialValue) {
   }
 }
 
+<<<<<<< HEAD
 const makeFiboGenerator = function(firstNumber = 0,secondNumber) {
   if(!secondNumber) {
     secondNumber = firstNumber || 1;
+=======
+const makeFiboGenerator = function(firstNumber = 0,secondNumber = 1) {
+  const getFibo = function(firstNumber,secondNumber) {
+    return function() {
+      let fiboNumber = firstNumber;
+      let sum = firstNumber+secondNumber;
+      firstNumber = secondNumber;
+      secondNumber = sum;
+      return fiboNumber;
+    }
+  }
+  if(firstNumber && secondNumber <= 1) {
+    let secondNumber = firstNumber;
+>>>>>>> 86eafff7f606bd59e4c3452ad275f313ae0aa8d2
     firstNumber = 0;
   }
   return function() {
